@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import sendMsgIcon from '../assets/send-arrow.svg'
 
 const Input = ({ onSendMessage }) => {
   const [textInputs, setTextInputs] = useState("");
@@ -14,16 +15,20 @@ const Input = ({ onSendMessage }) => {
   }
 
   return (
-    <div className="Input">
-      <form onSubmit={(e) => onSubmit(e)}>
-        <input
-          onChange={(e) => onChange(e)}
-          value={textInputs}
-          type="text"
-          placeholder="Enter your message and press ENTER"
-        />
-        <button>Send</button>
-      </form>
+    <div className="container h-auto new-msg-section">
+      <div className="message-input">
+        <form onSubmit={(e) => onSubmit(e)} className="new-msg-form">
+          <input
+            onChange={(e) => onChange(e)}
+            value={textInputs}
+            type="text"
+            placeholder="Start a new message"
+          />
+          <button className="btn-send-msg">
+            <img src={sendMsgIcon} alt="" />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
