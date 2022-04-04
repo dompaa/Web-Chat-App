@@ -10,12 +10,12 @@ import avatar3 from '../src/assets/avatar-3.svg'
 import { Tooltip } from "@mui/material";
 import nouns from "./Components/Data/nouns";
 import adjectives from "./Components/Data/adjectives";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 
 function App() {
