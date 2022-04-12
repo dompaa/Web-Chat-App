@@ -7,6 +7,7 @@ const Message = ({ messages, users }) => {
 
   return (
     <div>
+      
       <ul className="Messages-list">
         {messages.map((message) => (
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
@@ -19,7 +20,8 @@ const Message = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
-              <div className="time">{message.timeStamp.getHours()}:{message.timeStamp.getMinutes()}:{message.timeStamp.getSeconds()}</div>
+              <div className="timestamp">{message.timeStamp.getHours()}:{message.timeStamp.getMinutes()}:{message.timeStamp.getSeconds()}</div>
+
             </div>
             
           </div>

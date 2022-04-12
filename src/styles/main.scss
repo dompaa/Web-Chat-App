@@ -3,6 +3,7 @@
 body {
     margin: 0;
     padding: 0;
+    
 }
 
 ul {
@@ -249,6 +250,7 @@ input {
     display: flex;
     align-items: center;
     padding: 14px 0;
+    
 
     input {
         flex-grow: 1;
@@ -263,3 +265,24 @@ button {
         padding: 4px 10px;
     }
 }
+
+#my-scrollbar {
+    width: 500px;
+    height: 500px;
+    overflow: auto;
+  }
+
+// .scrollbar-track{
+//     background-color: transparent !important;
+//   }
+  
+//   .scrollbar-track-y{
+//     width:12px !important;
+//   }
+  
+  
+//   .scrollbar-thumb{
+//     width:12px !important;
+//     background-color: black !important;
+//     border-radius: 0 !important;
+//   }

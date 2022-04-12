@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Input from "./Components/Input";
 import Message from "./Components/Message";
+import Scroll from "./Components/SmoothScroll";
 import './styles/main.scss'
 import logoIntro from '../src/assets/logo-intro.svg'
 import logoChat from '../src/assets/logo-chat.svg'
@@ -43,6 +44,7 @@ function App() {
     }
   })
 
+  
 
   useEffect(() => {
     if (usernameSubmitted) {
@@ -144,13 +146,15 @@ function App() {
     setUser(prevValues => ({ ...prevValues, avatar: userAvatar, avatarId: avatar }))
   }
 
-
+  //scrollbar
 
   return (
     <div className="App">
+      
       {
         usernameSubmitted ?
           <div className="chat-screen">
+            <Scroll/>
             <header>
               <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <img src={logoChat} alt="" className="logo-chat" />
@@ -167,10 +171,14 @@ function App() {
                 </div>
               </div>
             </header>
-            <div ref={messageRef}>
+            
+            
             <Message messages={messages} users={users} />
+            <div ref={messageRef}>
             <Input onSendMessage={onSendMessage} />
             </div>
+            
+           
           </div>
           :
           <div className="container">
@@ -206,7 +214,7 @@ function App() {
           </div>
           
       }
-      
+    
     </div>
     
   );
