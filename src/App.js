@@ -11,6 +11,9 @@ import avatar3 from '../src/assets/avatar-3.svg'
 import { Tooltip } from "@mui/material";
 
 
+
+
+
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -32,6 +35,9 @@ function App() {
   const [usernameSubmitted, setUsernameSubmitted] = useState(false)
   const [members, setMembers] = useState([])
   const messageRef = useRef();
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [emojiPickerShown, setEmojiPickerShown] = useState(false)
+  
 
   useEffect(() => {
     if (messageRef.current) {
@@ -105,6 +111,12 @@ function App() {
   }, [drone])
 
   
+ 
+
+  const onEmojiClick = (event, emojiObject) => {
+    console.log(emojiObject);
+    //setCurrentMessage((prevValue) => `${prevValue}${emojiObject.emoji}`)
+  }
 
 
   const onSendMessage = (message) => {
