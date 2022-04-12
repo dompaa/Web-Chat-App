@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Input from "./Components/Input";
 import Message from "./Components/Message";
 import './styles/main.scss'
@@ -8,8 +8,8 @@ import avatar1 from '../src/assets/avatar-1.svg'
 import avatar2 from '../src/assets/avatar-2.svg'
 import avatar3 from '../src/assets/avatar-3.svg'
 import { Tooltip } from "@mui/material";
-import nouns from "./Components/Data/nouns";
-import adjectives from "./Components/Data/adjectives";
+
+
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -30,6 +30,18 @@ function App() {
   const [users, setUsers] = useState();
   const [usernameSubmitted, setUsernameSubmitted] = useState(false)
   const [members, setMembers] = useState([])
+  const messageRef = useRef();
+
+  useEffect(() => {
+    if (messageRef.current) {
+      messageRef.current.scrollIntoView(
+        {
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest'
+        })
+    }
+  })
 
 
   useEffect(() => {
@@ -41,6 +53,7 @@ function App() {
     }
   }, [usernameSubmitted]);
 
+  
 
   useEffect(() => {
     if (drone) {
@@ -89,6 +102,8 @@ function App() {
     }
   }, [drone])
 
+  
+
 
   const onSendMessage = (message) => {
     if (message) {
@@ -130,6 +145,7 @@ function App() {
   }
 
 
+
   return (
     <div className="App">
       {
@@ -151,8 +167,10 @@ function App() {
                 </div>
               </div>
             </header>
+            <div ref={messageRef}>
             <Message messages={messages} users={users} />
             <Input onSendMessage={onSendMessage} />
+            </div>
           </div>
           :
           <div className="container">
@@ -182,10 +200,15 @@ function App() {
               disabled={(user.username.length > 3 && user.avatar) 
               ? 
               false : true}>OK</button>
+             
             </div>
+            
           </div>
+          
       }
+      
     </div>
+    
   );
   
 }

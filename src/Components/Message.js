@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const Message = ({ messages, users }) => {
   console.log(messages)
 
+
   return (
     <div>
       <ul className="Messages-list">
@@ -18,6 +19,7 @@ const Message = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
+              <div className="time">{message.timeStamp.getHours()}:{message.timeStamp.getMinutes()}:{message.timeStamp.getSeconds()}</div>
             </div>
             
           </div>
