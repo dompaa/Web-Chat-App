@@ -11,17 +11,6 @@ import avatar3 from '../src/assets/avatar-3.svg'
 import { Tooltip } from "@mui/material";
 
 
-
-
-
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
-
-
 function App() {
   const [user, setUser] = useState({
     username: '',
@@ -35,8 +24,7 @@ function App() {
   const [usernameSubmitted, setUsernameSubmitted] = useState(false)
   const [members, setMembers] = useState([])
   const messageRef = useRef();
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [emojiPickerShown, setEmojiPickerShown] = useState(false)
+ 
   
 
   useEffect(() => {
